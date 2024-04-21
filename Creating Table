@@ -19,7 +19,7 @@ CREATE TABLE fetsy (
 	rating FLOAT,
 	seller_name VARCHAR(255),
 	seller_country VARCHAR(255),
-	order_date VARCHAR(255)
+	order_date DATE
 );
 
 CREATE TABLE sellers (
