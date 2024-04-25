@@ -1,0 +1,30 @@
+-- Use SELECT statements as we go to ensure that the tables all look correct
+
+INSERT INTO buyers (buyer_id, first_name, last_name, email, address, city, country)
+SELECT DISTINCT buyer_id, first_name, last_name, email, address, city, country
+FROM fetsy;
+SELECT * FROM buyers;
+
+INSERT INTO sellers (seller_id, seller_name, seller_country)
+SELECT DISTINCT seller_id, seller_name, seller_country
+FROM fetsy;
+SELECT * FROM sellers;
+
+-- origional setting: ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+SET sql_mode = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+-- This setting alows for the STRING values to be formatted as DATE values with zeros
+
+INSERT INTO credit_cards (cc_number, cc_exp, user_id)
+SELECT DISTINCT cc_number, STR_TO_DATE(cc_exp, "%c-%Y"), buyer_id
+FROM fetsy;
+SELECT * FROM credit_cards;
+
+INSERT INTO products (product_id, product_price, product_name, seller_id)
+SELECT DISTINCT product_id, product_price, product_name, seller_id
+FROM fetsy;
+SELECT * from products;
+
+INSERT INTO orders (order_id, order_quantity, review, rating, order_date, product_id, buyer_id)
+SELECT DISTINCT order_id, order_quantity, review, rating, STR_TO_DATE(order_date, "%m-%d-%Y"), product_id, buyer_id
+FROM fetsy;
+SELECT * from orders;
