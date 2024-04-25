@@ -1,0 +1,47 @@
+Queries:
+Create a stored procedure called top_ten_for_country which accepts the name of a country and returns the buyer_id, first_name, last_name, and total_amount_spent 
+for the top ten buyers (in terms of total amount of money spent) for that country. Make sure to do an unnecessary join to another table
+
+CREATE PROCEDURE top_ten_for_country
+BEGIN
+    
+END;
+
+Create a view called top_rated_products which displays the product_id, product_name, product_price, avg_rating and rating_count for the top ten products 
+according to their average rating (minimum of 20 ratings).
+
+
+
+Create a stored procedure called buyer_for_date which accepts a first name, last name, and order date and returns the order_id, order_quantity, product_name 
+and order_date for orders made by buyers with that name on that date.
+
+
+
+Create a view called top_five_buyer_cities which displays the city and total_amount_spent for the top five cities in terms buyer spending, descending order. 
+Display the sum of spending (per city).
+
+
+
+Create a stored procedure called sales_for_month which accepts a specific month (i.e. month and year) and returns the month_and_year (in one column) 
+and sum of all sales in that month (under the column total_sales).
+
+
+
+Create a view called seller_sales_tiers which displays the seller_id, seller_name, total_sales sum. Also display the sales_tier based on the total sales for a seller. 
+Apply the corresponding label:
+$100,000.00 <= High
+$10,000.00 <= Medium < $100,000.00
+$10,000.00 > Low
+
+
+
+Create a stored procedure called top_products_for_seller which accepts a seller name and returns the seller_id, product_id, product_name, and total_sales for 
+all the products sold by that seller, sorted by most total sales (in terms of money) in descending order.
+
+
+
+Create a stored procedure called seller_running_totals which accepts a seller name and returns the seller_id, order_id, order_date, order_total. Also show a running sales 
+total (in terms of money) for that seller over all time (hint: windowing functions) under the column running_total. The running total should increase with each sale made.
+
+
+
