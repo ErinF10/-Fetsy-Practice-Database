@@ -1,0 +1,5 @@
+Create a stored procedure called sales_for_month which accepts a specific month (i.e. month and year) and returns the month_and_year 
+(in one column) and sum of all sales in that month (under the column total_sales).
+
+
+
