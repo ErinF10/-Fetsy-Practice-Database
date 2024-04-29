@@ -1,5 +1,0 @@
-Create a view called top_rated_products which displays the product_id, product_name, product_price, avg_rating and rating_count for 
-the top ten products according to their average rating (minimum of 20 ratings).
-
-
-
