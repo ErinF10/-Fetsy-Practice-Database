@@ -55,7 +55,7 @@ BEGIN
 END:
 
 DROP TABLE top_ten_for_country;
-CALL top_ten_for_country('United States'); -- , @buyer_id, @first_name, @last_name, @total_amount_spent);
+CALL top_ten_for_country('United States'); 
 SELECT buyer_id, first_name, last_name, CONCAT('$',FORMAT(total_amount_spent,2,'en_US')) AS total_amount_spent FROM top_ten_for_country;
 
 
