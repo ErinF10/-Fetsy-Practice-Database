@@ -1,0 +1,5 @@
+Create a stored procedure called top_products_for_seller which accepts a seller name and returns the seller_id, product_id, product_name, 
+and total_sales for all the products sold by that seller, sorted by most total sales (in terms of money) in descending order.
+
+
+
