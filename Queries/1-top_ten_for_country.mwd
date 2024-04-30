@@ -51,7 +51,6 @@ BEGIN
 		FETCH FROM buyerCursor INTO buyerID, firstName, lastName, totalAmountSpent, cursorCountry;
 	END WHILE;
 	CLOSE buyerCursor;    
-    SELECT @buyer_id, @first_name, @last_name, @total_amount_spent;
 END:
 
 DROP TABLE top_ten_for_country;
