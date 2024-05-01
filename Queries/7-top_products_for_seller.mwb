@@ -1,10 +1,10 @@
 -- Create a stored procedure called top_products_for_seller which accepts a seller name and returns the seller_id,
--- product_id, product_name, and total_sales for all the products sold by that seller, sorted by most total sales (in terms of money) in descending order.
-
+--  product_id, product_name, and total_sales for all the products sold by that seller, sorted by most total sales (in terms of money) in descending order.
+DROP PROCEDURE top_products_for_seller;
 DELIMITER :
-CREATE PROCEDURE top_products_for_seller (IN seller_name VARCHAR(255))
+CREATE PROCEDURE top_products_for_seller (IN seller_name_given VARCHAR(255))
 BEGIN
-	DECLARE sellerID INT;
+    DECLARE sellerID INT;
     DECLARE productID INT;
     DECLARE productName VARCHAR(255);
     DECLARE totalSales INT;
@@ -13,9 +13,9 @@ BEGIN
     
     DECLARE data_cursor CURSOR FOR SELECT seller_name, seller_id, product_id, product_name, total_sales
     FROM (
-		SELECT seller_name, seller_id, product_id, product_name, SUM(order_cost) AS total_sales
+		 SELECT seller_name, seller_id, product_id, product_name, SUM(order_cost) AS total_sales
 		FROM (
-			SELECT (orders.order_quantity * products.product_price) AS order_cost, products.seller_id AS seller_id , seller_name, products.product_id, product_name
+			SELECT (orders.order_quantity * products.product_price)/100 AS order_cost, products.seller_id AS seller_id , seller_name, products.product_id, product_name
 			FROM sellers
 			INNER JOIN products ON sellers.seller_id = products.seller_id
 			INNER JOIN orders ON orders.product_id = products.product_id
@@ -32,19 +32,19 @@ BEGIN
 		seller_id INT, 
         product_id INT, 
         product_name VARCHAR(255), 
-        total_sales INT
+        total_sales VARCHAR(255)
 	);
-    
     WHILE finished_reading = false DO
-		IF seller_name = sellerName THEN
-			INSERT INTO top_products_for_seller VALUES (sellerID, productID, productName, totalSales);
+		IF seller_name_given = sellerName THEN
+			INSERT INTO top_products_for_seller VALUES (sellerID, productID, productName, CONCAT('$',FORMAT(totalSales,2,'en_US')));
 		END IF;
+        FETCH FROM data_cursor INTO sellerName, sellerID, productID, productName, totalSales;
 	END WHILE;
 END:
 
-CALL top_products_for_seller('John Doe');
+DROP TABLE top_products_for_seller;
+CALL top_products_for_seller('Smitham, Mraz and Schulist');
 SELECT * FROM top_products_for_seller;
-
 
 
 
