@@ -1,5 +1,0 @@
-Create a view called top_five_buyer_cities which displays the city and total_amount_spent for the top five cities in terms buyer 
-spending, descending order. Display the sum of spending (per city).
-
-
-
