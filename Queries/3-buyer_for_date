@@ -1,5 +1,0 @@
-Create a stored procedure called buyer_for_date which accepts a first name, last name, and order date and returns the order_id, 
-order_quantity, product_name and order_date for orders made by buyers with that name on that date.
-
-
-
