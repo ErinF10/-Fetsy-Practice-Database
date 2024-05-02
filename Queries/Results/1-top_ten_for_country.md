@@ -5,7 +5,7 @@
 
 ### Resulting table of SELECT statement:
 
-<img width="358" alt="Screenshot 2024-04-29 at 10 11 19 AM" src="https://github.com/ErinF10/-Fetsy-Practice-Database/assets/144135752/cb821dce-1f7c-443e-b8ba-4cb4e286ddee">
+<img width="407" alt="Screenshot 2024-05-02 at 11 27 04 AM" src="https://github.com/ErinF10/-Fetsy-Practice-Database/assets/144135752/8f87d0cd-c3f2-417c-ab77-9846d8719ba8">
 
 ## EXPLAIN Statements and Results before Indexing:
 <img width="1190" alt="Screenshot 2024-04-29 at 12 02 29 PM" src="https://github.com/ErinF10/-Fetsy-Practice-Database/assets/144135752/0ff678d6-40f3-4c98-95ba-7a87068a9739">
