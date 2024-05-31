@@ -1,0 +1,13 @@
+ALTER TABLE buyers
+ADD INDEX first_name_index (first_name),
+ADD INDEX last_name_index (last_name),
+ADD INDEX city_index (city);
+
+ALTER TABLE orders
+ADD INDEX order_date_index (order_date);
+
+ALTER TABLE sellers
+ADD INDEX seller_name_index (seller_name);
+
+ALTER TABLE products
+ADD INDEX product_name_index (product_name);
