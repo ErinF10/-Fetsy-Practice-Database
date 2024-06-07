@@ -1,6 +1,6 @@
 -- Create a stored procedure called top_products_for_seller which accepts a seller name and returns the seller_id,
 --  product_id, product_name, and total_sales for all the products sold by that seller, sorted by most total sales (in terms of money) in descending order.
-DROP PROCEDURE top_products_for_seller;
+
 DELIMITER :
 CREATE PROCEDURE top_products_for_seller (IN seller_name_given VARCHAR(255))
 BEGIN
@@ -42,7 +42,6 @@ BEGIN
 	END WHILE;
 END:
 
-DROP TABLE top_products_for_seller;
 CALL top_products_for_seller('Smitham, Mraz and Schulist');
 SELECT * FROM top_products_for_seller;
 
