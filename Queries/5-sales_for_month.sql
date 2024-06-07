@@ -1,6 +1,6 @@
 -- Create a stored procedure called sales_for_month which accepts a specific month (i.e. month and year) and returns the month_and_year 
 -- (in one column) and sum of all sales in that month (under the column total_sales).
-DROP PROCEDURE sales_for_month;
+
 DELIMITER :
 CREATE PROCEDURE sales_for_month(IN month_input DATE)
 BEGIN
@@ -45,7 +45,6 @@ BEGIN
     VALUES (CONCAT(YEAR(month_input), "-", MONTH(month_input)), total_amount_spent_month);
 END:
 
-DROP TABLE sales_for_month;
 -- For input add any day of the month to return the whole value for the entire month
 CALL sales_for_month('2024-01-09');
 SELECT order_date, CONCAT('$',FORMAT(total_amount_spent,2,'en_US')) AS total_amount_spent FROM sales_for_month;
