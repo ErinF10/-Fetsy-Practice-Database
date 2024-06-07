@@ -14,7 +14,7 @@ FROM (
 		INNER JOIN products ON orders.product_id = products.product_id
 		) AS order_sums
 	GROUP BY city ORDER BY total_amount_spent DESC
-) as total_spent
+) AS total_spent
 LIMIT 5;
 
 SELECT * FROM top_five_cities;
